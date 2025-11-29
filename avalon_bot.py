@@ -58,52 +58,119 @@ def price(c):
     )
     return float(r.json()["price"])
 
-def signal(uid):
-    b = bal(uid)
-    if b < MIN_BR:
-        return f"⚠️ Bankroll too low.\nMin: ${MIN_BR}\nCurrent: ${b:.2f}\nUse /br250"
+
+
     m = member(uid)
     if not m or m["status"] not in ("trial","active"):
         return "ℹ️ No membership.\nUse /trial."
 
-    out=[]
+    out = []
     out.append("```")
-    out.append("🔥 TODAY'S SIGNAL\n")
-    out.append(f"Bankroll: ${b:.2f}\n")
+    out.append("🔥 TODAY'S SIGNAL")
+    out.append("")
+    out.append(f"Bankroll: ${b:.2f}")
+    out.append("")
     out.append("COIN     PRICE         SIDE     STAKE")
     out.append("----------------------------------------")
 
     for c in COINS:
         p = price(c)
-        stake=b*PCT[c]
-        out.append(f"{c:<7} {p:<12.4f} HOLD    ${stake:.2f}")
+        stake = b * PCT[c]
+        side = "HOLD"
+        out.append(f"{c:<7} {p:<12.4f} {side:<7} ${stake:.2f}")
 
     out.append("")
     out.append("⚠️ Educational only — not financial advice.")
     out.append("```")
     return "\n".join(out)
 
-@bot.message_handler(commands=["start"])
-def start(m):
-    bot.send_message(m.chat.id,"Welcome to Avalon.\nUse /trial to begin.")
 
-@bot.message_handler(commands=["trial"])
-def trial(m):
-    set_member(m.from_user.id,"trial",TRIAL_DAYS)
-    bot.send_message(m.chat.id,"Trial activated.")
+            f"⚠️ Bankroll too low.\n"
+            f"Min: ${MIN_BR}\n"
+            f"Current: ${b:.2f}\n"
+            f"Use /br250 to set bankroll."
+        )
 
-@bot.message_handler(commands=["br"])
-def br(m):
-    try:
-        amt=float(m.text.split()[1])
-    except:
-        return bot.send_message(m.chat.id,"Usage: /br 250")
-    set_bal(m.from_user.id,amt)
-    bot.send_message(m.chat.id,f"Bankroll set to ${amt:.2f}")
+    m = member(uid)
+    if not m or m["status"] not in ("trial", "active"):
+        return "ℹ️ No membership.\nUse /trial to begin your free trial."
 
-@bot.message_handler(commands=["signal"])
-def send_signal(m):
-    bot.send_message(m.chat.id,signal(m.from_user.id))
+    out = []
+    out.append("```")
+    out.append("🔥 TODAY'S SIGNAL")
+    out.append("")
+    out.append(f"Bankroll: ${b:.2f}")
+    out.append("")
+    out.append("COIN     PRICE         SIDE     STAKE")
+    out.append("----------------------------------------")
 
-bot.send_message(CHAT,"Avalon bot running…")
-bot.infinity_polling()
+    for c in COINS:
+        p = price(c)
+        stake = b * PCT[c]
+        out.append(f"{c:<7} {p:<12.4f}  HOLD    ${stake:.2f}")
+
+    out.append("")
+    out.append("⚠️ Educational only — not financial advice.")
+    out.append("```")
+
+    return "\n".join(out)
+
+
+            f"⚠️ Bankroll too low.\n"
+            f"Min: ${MIN_BR}\n"
+            f"Current: ${b:.2f}\n"
+            f"Use /br250 to set bankroll."
+        )
+
+    m = member(uid)
+    if not m or m["status"] not in ("trial", "active"):
+        return "ℹ️ No membership.\nUse /trial to begin your free trial."
+
+    out = []
+    out.append("```")
+    out.append("🔥 TODAY'S SIGNAL")
+    out.append("")
+    out.append(f"Bankroll: ${b:.2f}")
+    out.append("")
+    out.append("COIN     PRICE         SIDE     STAKE")
+    out.append("----------------------------------------")
+
+    for c in COINS:
+        p = price(c)
+        stake = b * PCT[c]
+        out.append(f"{c:<7} {p:<12.4f}  HOLD    ${stake:.2f}")
+
+    out.append("")
+    out.append("⚠️ Educational only — not financial advice.")
+    out.append("```")
+
+    return "\n".join(out)
+
+
+def signal(uid):
+    b = bal(uid)
+    if b < MIN_BR:
+        return f"⚠️ Bankroll too low.\nMin: ${MIN_BR}\nCurrent: ${b:.2f}\nUse /br250"
+
+    m = member(uid)
+    if not m or m["status"] not in ("trial","active"):
+        return "ℹ️ No membership.\nUse /trial."
+
+    out = []
+    out.append("```")
+    out.append("🔥 TODAY'S SIGNAL")
+    out.append("")
+    out.append(f"Bankroll: ${b:.2f}")
+    out.append("")
+    out.append("COIN     PRICE         SIDE     STAKE")
+    out.append("----------------------------------------")
+
+    for c in COINS:
+        p = price(c)
+        stake = b * PCT[c]
+        out.append(f"{c:<7} {p:<12.4f} HOLD     ${stake:.2f}")
+
+    out.append("⚠️ Educational only — not financial advice.")
+    out.append("```")
+
+    return "\n".join(out)

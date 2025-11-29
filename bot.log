@@ -1,0 +1,4 @@
+nohup: ignoring input
+  File "/root/avalon_bot/avalon_bot.py", line 88
+    f"⚠️ Bankroll too low.\n"
+IndentationError: unexpected indent

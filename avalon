@@ -1,3 +1,27 @@
+#!/bin/bash
+
+# Location of bot files
+BOT_DIR="$HOME/avalon_bot"
+BOT_FILE="$BOT_DIR/avalon_bot.py"
+REQ_FILE="$BOT_DIR/requirements.txt"
+LOG_FILE="$BOT_DIR/bot.log"
+
+# Kill bot
+stop_bot() {
+    pkill -f avalon_bot.py 2>/dev/null
+    pkill -f python3 2>/dev/null
+}
+
+# Install a fresh clean version of the bot
+install_bot() {
+mkdir -p "$BOT_DIR"
+
+cat > "$REQ_FILE" << 'X'
+pyTelegramBotAPI==4.17.0
+requests
+X
+
+cat > "$BOT_FILE" << 'X'
 #!/usr/bin/env python3
 import json, time, requests
 from telebot import TeleBot
@@ -107,3 +131,20 @@ def send_signal(m):
 
 bot.send_message(CHAT,"Avalon bot running…")
 bot.infinity_polling()
+X
+}
+
+# Restart bot
+restart_bot() {
+    stop_bot
+    nohup python3 "$BOT_FILE" > "$LOG_FILE" 2>&1 &
+}
+
+case "$1" in
+    install) install_bot ;;
+    restart) restart_bot ;;
+    stop) stop_bot ;;
+    status) ps aux | grep avalon_bot.py ;;
+    log) tail -n 40 "$LOG_FILE" ;;
+    *) echo "Usage: ./avalon {install|restart|stop|status|log}" ;;
+esac

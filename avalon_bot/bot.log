@@ -1,0 +1,5 @@
+nohup: ignoring input
+  File "/root/avalon_bot/avalon_bot/avalon_bot.py", line 58
+    ")
+    ^
+SyntaxError: unterminated string literal (detected at line 58)

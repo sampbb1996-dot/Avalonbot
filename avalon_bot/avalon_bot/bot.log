@@ -1,0 +1,47 @@
+nohup: ignoring input
+2025-11-28 23:58:50,630 (__init__.py:1212 MainThread) ERROR - TeleBot: "Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: can't parse entities: Unsupported start tag "br" at byte offset 24"
+2025-11-28 23:58:50,631 (__init__.py:1214 MainThread) ERROR - TeleBot: "Exception traceback:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/telebot/__init__.py", line 1206, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "/usr/local/lib/python3.10/dist-packages/telebot/util.py", line 150, in raise_exceptions
+    raise self.exception_info
+  File "/usr/local/lib/python3.10/dist-packages/telebot/util.py", line 93, in run
+    task(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/telebot/__init__.py", line 8404, in _run_middlewares_and_handler
+    result = handler['function'](message)
+  File "/root/avalon_bot/avalon_bot/avalon_bot/avalon_bot.py", line 117, in sig
+    bot.send_message(m.chat.id, signal(m.from_user.id))
+  File "/usr/local/lib/python3.10/dist-packages/telebot/__init__.py", line 1742, in send_message
+    apihelper.send_message(
+  File "/usr/local/lib/python3.10/dist-packages/telebot/apihelper.py", line 270, in send_message
+    return _make_request(token, method_url, params=payload, method='post')
+  File "/usr/local/lib/python3.10/dist-packages/telebot/apihelper.py", line 167, in _make_request
+    json_result = _check_result(method_name, result)
+  File "/usr/local/lib/python3.10/dist-packages/telebot/apihelper.py", line 194, in _check_result
+    raise ApiTelegramException(method_name, result, result_json)
+telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: can't parse entities: Unsupported start tag "br" at byte offset 24
+"
+2025-11-28 23:59:02,023 (__init__.py:1212 MainThread) ERROR - TeleBot: "Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: can't parse entities: Unsupported start tag "br" at byte offset 24"
+2025-11-28 23:59:02,024 (__init__.py:1214 MainThread) ERROR - TeleBot: "Exception traceback:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/telebot/__init__.py", line 1206, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "/usr/local/lib/python3.10/dist-packages/telebot/util.py", line 150, in raise_exceptions
+    raise self.exception_info
+  File "/usr/local/lib/python3.10/dist-packages/telebot/util.py", line 93, in run
+    task(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/telebot/__init__.py", line 8404, in _run_middlewares_and_handler
+    result = handler['function'](message)
+  File "/root/avalon_bot/avalon_bot/avalon_bot/avalon_bot.py", line 117, in sig
+    bot.send_message(m.chat.id, signal(m.from_user.id))
+  File "/usr/local/lib/python3.10/dist-packages/telebot/__init__.py", line 1742, in send_message
+    apihelper.send_message(
+  File "/usr/local/lib/python3.10/dist-packages/telebot/apihelper.py", line 270, in send_message
+    return _make_request(token, method_url, params=payload, method='post')
+  File "/usr/local/lib/python3.10/dist-packages/telebot/apihelper.py", line 167, in _make_request
+    json_result = _check_result(method_name, result)
+  File "/usr/local/lib/python3.10/dist-packages/telebot/apihelper.py", line 194, in _check_result
+    raise ApiTelegramException(method_name, result, result_json)
+telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: can't parse entities: Unsupported start tag "br" at byte offset 24
+"

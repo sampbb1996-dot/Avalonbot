@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pattern Insight Overview</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0e0e0e;
+            color: #e6e6e6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #333;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #9b6dff;
+        }
+
+        .date {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .section {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #222;
+            border-radius: 10px;
+            border: 1px solid #333;
+        }
+
+        .label {
+            font-size: 13px;
+            opacity: 0.7;
+        }
+
+        .value {
+            margin-top: 5px;
+            font-size: 18px;
+            color: #cfcfcf;
+        }
+
+        .highlight {
+            color: #7bffaa;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Pattern Insight Overview</h1>
+    <div class="date">{{ today }}</div>
+
+    <div class="section">
+        <div class="label">Current Pattern Resonance</div>
+        <div class="value highlight">{{ pattern }}</div>
+    </div>
+
+    <div class="section">
+        <div class="label">Estimated Public Lift</div>
+        <div class="value highlight">{{ lift }}%</div>
+    </div>
+
+    <div class="section">
+        <div class="label">Interpretation</div>
+        <div class="value">
+            This pattern aligns with emerging public attention structures.
+            Content with similar characteristics may experience elevated visibility.
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

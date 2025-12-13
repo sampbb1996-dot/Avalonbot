@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ProblemHunt – Turn Your Problem Into Equity</title>
+
+<style>
+:root {
+  --bg1: #0b0f1a;
+  --bg2: #05070d;
+  --accent: #5b8cff;
+  --text: #ffffff;
+  --muted: #cfd6ff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(180deg, var(--bg1), var(--bg2));
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+               Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  max-width: 720px;
+  padding: 60px 24px;
+  text-align: center;
+}
+
+h1 {
+  font-size: clamp(40px, 6vw, 64px);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin-bottom: 40px;
+}
+
+.cta {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 18px 36px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(91,140,255,0.35);
+}
+
+.footer {
+  margin-top: 60px;
+  font-size: 14px;
+  color: #7a86b8;
+}
+</style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Turn Your Problem<br>Into Equity</h1>
+
+    <p>
+      Describe a real problem you’re facing.  
+      We turn it into a startup.  
+      You receive equity in the company that solves it.
+    </p>
+
+    <a href="#" class="cta">Share Your Problem</a>
+
+    <div class="footer">
+      ProblemHunt • Built for real problems, real ownership
+    </div>
+  </div>
+</body>
+</html>
